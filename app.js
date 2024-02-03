@@ -3,10 +3,10 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-app.options("*", cors())
+// app.options("*", cors())
 
 app.use(cors({
-    origin: 'https://puit.vercel.app',
+    origin: process.env.ORIGIN,
     credentials:true,
 }))
 
