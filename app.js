@@ -6,6 +6,8 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cookieParser());
 
+app.options('*', cors())
+
 app.use(cors({
     origin: 'https://puit.vercel.app',
     credentials:true,
