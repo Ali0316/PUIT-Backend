@@ -5,15 +5,10 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({
-//     origin: 'http://localhost:5173',
-//     credentials: true
-// }))
 
 app.use(cors({
-    origin: 'https://puit.vercel.app/',
-    methods: ['POST','GET','PUT'],
-    credentials:true,
+    origin: 'https://puit.vercel.app',
+    credentials: true
 }))
 
 const cards = require("./routes/cardRoute");
