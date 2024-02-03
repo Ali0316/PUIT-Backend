@@ -10,17 +10,14 @@ const sendToken = (user,statusCode,res)=>{
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ),
-        
-        secure: process.env.NODE_ENV !== 'development',
-        // httpOnly: true,
-        domain: process.env.NODE_ENV === 'development' ? 'localhost' : '.vercel.app',
+        httpOnly: true,
     };
 
     const userEmail = user.email;
     res.status(statusCode).cookie('token',token,options).json({
         success: true,
         email: userEmail,
-        // token,
+        token,
     })
 };
 
