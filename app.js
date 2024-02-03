@@ -3,9 +3,6 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-app.use(express.json());
-app.use(cookieParser());
-
 app.options("*", cors())
 
 app.use(cors({
@@ -13,6 +10,9 @@ app.use(cors({
     credentials:true,
 }))
 
+
+app.use(express.json());
+app.use(cookieParser());
 
 const cards = require("./routes/cardRoute");
 const user = require("./routes/userRoute");
