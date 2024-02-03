@@ -11,7 +11,7 @@ app.use(cookieParser());
 // }))
 
 app.use(cors({
-    origin: [''],
+    origin: ['https://puit.vercel.app/'],
     methods: ['POST','GET','PUT'],
     credentials:true,
 }))
