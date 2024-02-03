@@ -5,9 +5,15 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cookieParser());
+// app.use(cors({
+//     origin: 'http://localhost:5173',
+//     credentials: true
+// }))
+
 app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true
+    origin: process.env.ORIGIN,
+    methods: ['POST','GET','PUT'],
+    credentials:true,
 }))
 
 const cards = require("./routes/cardRoute");
