@@ -11,7 +11,7 @@ const cors = require("cors");
 // }))
 
 app.use(cors({
-    origin: 'https://puit.vercel.app',
+    origin: '*',
     credentials: true,
   }));
 
