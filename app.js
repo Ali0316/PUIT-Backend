@@ -5,15 +5,15 @@ const cors = require("cors");
 
 // app.options("*", cors())
 
-app.use(cors({
-    origin: process.env.ORIGIN,
-    credentials:true,
-}))
-
 // app.use(cors({
-//     origin: '*',
-//     credentials: true,
-//   }));
+//     origin: process.env.ORIGIN,
+//     credentials:true,
+// }))
+
+app.use(cors({
+    origin: '*',
+    credentials: true,
+  }));
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
