@@ -18,7 +18,10 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
   next();
 });
 exports.isAdminUser = catchAsyncErrors(async (req, res, next) => {
-  const { token } = req.cookies;
+  // const { token } = req.cookies;
+
+  const token = req.header("Authorization").replace("Bearer ", "");
+  
   if (!token) {
     return next(new ErrorHandler("Please Login to access this resource", 401));
   }
