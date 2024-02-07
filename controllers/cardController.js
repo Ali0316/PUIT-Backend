@@ -88,3 +88,19 @@ exports.updateCard = catchAsyncErrors(async (req, res, next) => {
     card,
   });
 });
+
+// Delete a Card
+exports.deleteCard = catchAsyncErrors(async (req, res, next) => {
+  const card = await Card.findById(req.params.id);
+
+  if (!card) {
+    return next(new ErrorHandler("Card not found.", 404));
+  }
+
+  await card.remove();
+
+  res.status(200).json({
+    success: true,
+    message: "Card is deleted.",
+  });
+});
